@@ -35,10 +35,10 @@ $().ready(function() {
         let pokeFacts = await $.get(pokeURL);
 
         html = `<tr><td>Name: ${pokeFacts.name}</td></tr>` +
-               `<tr><td>Foto: <br><img src="${pokeFacts.image}"></td></tr>` +
+               `<tr><td>Foto: <br><img src="${pokeFacts.sprites.front_default}"></td></tr>` +
                `<tr><td>Weight: ${pokeFacts.weight}</td></tr>` +
-               `<tr><td>Abilities:</td></tr>` +
-               `<tr><td><ul>`;
+               `<tr><td>Abilities:</td>` +
+               `<td><ul>`;
 
         for(let ability of pokeFacts.abilities) {
             html += `<li>${ability.ability.name}</li>`
