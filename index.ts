@@ -17,7 +17,7 @@ $().ready(function() {
 
         let html = '';
         for(const pokemon of pokelist.results) {
-            html += `<tr><td><button type="button" onclick="showPokeDetails('${pokemon.url}')">${pokemon.name}</button></td></tr>`
+            html += `<tr><td><button type="button" id="details" data-details-url="${pokemon.url}">${pokemon.name}</button></td></tr>`
         }
         
         pokeTable[0].innerHTML = html;
@@ -47,6 +47,8 @@ $().ready(function() {
         
         pokeDetail[0].innerHTML = html;
     }
+
+    $(document).on("click", '#details', function () { showPokeDetails(<string>this.getAttribute('data-details-url')); });
 
     $('#btnPrev').on("click", function() {
         if(offset > 0){
